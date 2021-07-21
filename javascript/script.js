@@ -1,6 +1,6 @@
 $(document).ready(function () {
     //API Key for open weather API 
-    const APIKey = "eb4e229c9fa5cdd983467bf49c1e432e";
+    const APIKey = "f7be541465a4b4b5abba7bf4b7785fc7";
     //Moment js 
     const currentDate = moment().format('L');
     console.log(currentDate);
@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     function renderSearchList() {
         $('#search-list').empty();
-        searchHistory.forEach(function(city) {
+        searchHistory.forEach(function (city) {
             let searchHistoryList =$("<li>");
             searchHistoryList.addClass("list-group-item btn btn-light");
             searchHistoryList.text(city);
@@ -29,7 +29,7 @@ $(document).ready(function () {
     function currentWF(event, cityParam) {
         if(cityParam != null) {
             city = cityParam;
-        } else if ($(this).attr("id") === "search-btn") {
+        } else if ($(this).attr("id") === "search-button") {
             city = $('#search-city').val();
         } else { city =$(this).text(); }
 
@@ -98,5 +98,5 @@ $(document).ready(function () {
         });
     }
     //listener on btn id 
-    $('#search-btn').click(renderSearchList);
+    $('#search-button').click(renderSearchList);
 });

@@ -48,7 +48,7 @@ $(document).ready(function () {
             method: 'GET'
         }).then(function (response) {
             console.log(response);
-            $('.city-name').html(response.name + "" + DateTime);
+            $('.city-name').html(response.name + "" + currentDate);
 
             //convert temp Faranheit to Celcius, wind speed, humidity, and uv-index
             var tempF = (response.main.temp - 273.15);

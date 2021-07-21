@@ -3,7 +3,7 @@ $(document).ready(function () {
     const APIKey = "f7be541465a4b4b5abba7bf4b7785fc7";
     //Moment js 
     const currentDate = moment().format('L');
-    console.log(currentDate);
+    //console.log(currentDate);
     let city= "";
     const searchHistory = JSON.parse(localStorage.getItem('displayCity')) === null ? [] : JSON.parse(localStorage.getItem("displayCity"));
 
@@ -47,12 +47,13 @@ $(document).ready(function () {
             url: currentUrl,
             method: 'GET'
         }).then(function (response) {
-            console.log(response);
+            //console.log(response);
             $('.city-name').html(response.name + "" + currentDate);
+            $('#weather-icon').attr("src","http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
 
             //convert temp Faranheit to Celcius, wind speed, humidity, and uv-index
             var tempF = (response.main.temp - 273.15);
-            $('.current-temp').text("Temperature:" + tempF.toFixed(2) + "°C");
+           $('.current-temp').text("Temperature:" + tempF.toFixed(2) + "°C");
             var wind = (response.wind.speed * 2.237);
             $('.current-wind').text("Wind Speed:" + wind.toFixed(2) + "MPH");
             $(".current-humidity").text("Humidity:" + response.main.humidity + "%")
@@ -61,7 +62,7 @@ $(document).ready(function () {
     }
     //querying the openweather database for 5 days forecast 
     function futureWF() {
-        let fiveDayF = "http://https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+        let fiveDayF = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
         let dayCount = 1;
         $.ajax({
             url: fiveDayF,
@@ -78,25 +79,15 @@ $(document).ready(function () {
                     let month = date.split('-')[1];
                     let day = date.split('-')[2];
 
-                    $('#forecast-' + dayCount).children('.card-date').text(month + '/' + day + '/'+ year);
-                    $('#forecast-' + dayCount).children('.card-temp').text("Temperature: " + ((response.list[i].main.temp - 273.15).toFixed(2) + '°C'));
-                    $('#forecast-' + dayCount).children('.card-humidity').text('Humidity:' + response.list[i].main.humidity + '%');
+             $('#forecast-' + dayCount).children('.card-date').text(month + '/' + day + '/'+ year);
+             $('#forecast-' + dayCount).children('.card-temp').text("Temperature: " + ((response.list[i].main.temp - 273.15).toFixed(2) + '°C'));
+            $('#forecast-' + dayCount).children('.card-humidity').text('Humidity:' + response[i].main.humidity + '%');
                     dayCount ++;
                 }
             }
         });
     }
-    //querying for uv index data
-    function UVIndex(ln,lt) {
-        var uvUrl = "http://https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lt +"&lon"+ln;
-        $.ajax({
-            url: uvUrl,
-            method: 'GET'
-        })
-        .then(function(response) {
-            $('#uv-index').html(response.value);
-        });
-    }
+    
     //listener on btn id 
     $('#search-button').click(renderSearchList);
 });

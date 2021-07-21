@@ -53,11 +53,11 @@ $(document).ready(function () {
 
             //convert temp Faranheit to Celcius, wind speed, humidity, and uv-index
             var tempF = (response.main.temp - 273.15);
-           $('.current-temp').text("Temperature:" + tempF.toFixed(2) + "°C");
+           $('.current-temperature').text("Temperature:" + tempF.toFixed(2) + "°C");
             var wind = (response.wind.speed * 2.237);
             $('.current-wind').text("Wind Speed:" + wind.toFixed(2) + "MPH");
             $(".current-humidity").text("Humidity:" + response.main.humidity + "%")
-            UVIndex(response.coord.lon, response.coord.lat);
+           
         });
     }
     //querying the openweather database for 5 days forecast 
@@ -80,8 +80,9 @@ $(document).ready(function () {
                     let day = date.split('-')[2];
 
              $('#forecast-' + dayCount).children('.card-date').text(month + '/' + day + '/'+ year);
-             $('#forecast-' + dayCount).children('.card-temp').text("Temperature: " + ((response.list[i].main.temp - 273.15).toFixed(2) + '°C'));
-            $('#forecast-' + dayCount).children('.card-humidity').text('Humidity:' + response[i].main.humidity + '%');
+             $('#forecast-' + dayCount).children('.icon').attr("src", "http://api.openweathermap.org/img/w/"+ response.list[i].weather[0].icon + ".png");
+             $('#forecast-' + dayCount).children('.card-temp').text("Temp: " + ((response.list[i].main.temp - 273.15).toFixed(2) + '°C'));
+            $('#forecast-' + dayCount).children('.card-humidity').text('Humidity:' + response.list[i].main.humidity + "%");
                     dayCount ++;
                 }
             }

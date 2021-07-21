@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Weather Application </title>
+</head>
+<body>
+    <!--Header starts-->
+    <header class="header">
+        <h1>Weather Dashboard! </h1>
+    </header>
+    <!--Header ends-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h4 class="card-title">Search City: </h4>
+                        <div class="example" style="margin:auto;max-width:300px">
+                            <input class="search-input" id="search-city" type="text" placeholder="city name">
+                            <button class="btn btn-primary" id="search-button" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 16rem;">
+                    <ul id="search-list" class="list-group list-group-flush">
+
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <div id="current-weather" class="card">
+                        <div class="card-body">
+                            <h2><span class="city-name"></span></h2>
+                            <p class="current-temperature">Temperature: </p>
+                            <p class="current-humidity">Humidity Index: </p>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div id="weather-forecast" class="col">
+                            <h3> 5 Day Forecast</h3>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <div class="card bg-primary text-white mb-3">
+                                <div id="forecast-1" class="card-body">
+                                    <h5 class="card-date"></h5>
+                                    <p class="current-temperature">Temperature: </p>
+                                    <p class="current-humidity">Humidity Index: </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card bg-primary text-white mb-3">
+                                <div id="forecast-2" class="card-body">
+                                    <h5 class="card-date"></h5>
+                                    <p class="current-temperature">Temperature: </p>
+                                    <p class="current-humidity">Humidity Index: </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card bg-primary text-white mb-3">
+                                <div id="forecast-3" class="card-body">
+                                    <h5 class="card-date"></h5>
+                                    <p class="current-temperature">Temperature: </p>
+                                    <p class="current-humidity">Humidity Index: </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card bg-primary text-white mb-3">
+                                <div id="forecast-4" class="card-body">
+                                    <h5 class="card-date"></h5>
+                                    <p class="current-temperature">Temperature: </p>
+                                    <p class="current-humidity">Humidity Index: </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card bg-primary text-white mb-3">
+                                <div id="forecast-5" class="card-body">
+                                    <h5 class="card-date"></h5>
+                                    <p class="current-temperature">Temperature: </p>
+                                    <p class="current-humidity">Humidity Index: </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--JQUERY JS-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.1/build/global/luxon.min.js"></script>
+    <script src="./javascript/script.js"></script>
+</body>
+
+</html>

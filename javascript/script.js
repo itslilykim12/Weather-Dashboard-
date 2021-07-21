@@ -49,7 +49,7 @@ $(document).ready(function () {
         }).then(function (response) {
             //console.log(response);
             $('.city-name').html(response.name + "" + currentDate);
-            $('#weather-icon').attr("src","http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
+            $('#weather-icon').attr("src","http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png");
 
             //convert temp Faranheit to Celcius, wind speed, humidity, and uv-index
             var tempF = (response.main.temp - 273.15);
@@ -80,7 +80,7 @@ $(document).ready(function () {
                     let day = date.split('-')[2];
 
              $('#forecast-' + dayCount).children('.card-date').text(month + '/' + day + '/'+ year);
-             $('#forecast-' + dayCount).children('.icon').attr("src", "http://api.openweathermap.org/img/w/"+ response.list[i].weather[0].icon + ".png");
+             $('#forecast-' + dayCount).children('.icon').attr("src", "http://api.openweathermap.org/img/wn/"+ response.list[i].weather[0].icon + ".png");
              $('#forecast-' + dayCount).children('.card-temp').text("Temp: " + ((response.list[i].main.temp - 273.15).toFixed(2) + '°C'));
             $('#forecast-' + dayCount).children('.card-humidity').text('Humidity:' + response.list[i].main.humidity + "%");
                     dayCount ++;
